@@ -1,0 +1,10 @@
+assets/
+nbproject/
+sqls/
+application/config/database.php
+application/config/config.php
+application/views/*
+application/uploads/*
+application/models/*
+application/controllers/*
+

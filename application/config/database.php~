@@ -1,0 +1,17 @@
+<?php
+
+/*
+ * Config Connection
+ */
+
+// Hôte db
+    define('HOST',      '127.0.0.1');           
+    
+// Database Other
+    define('DB_OTHER',  'arkalys');
+
+// Identifiant 
+    define('LOGIN',     'root');      
+
+// Mot de passe 
+    define('PASSWORD',      '');                
