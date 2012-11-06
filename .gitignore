@@ -2,9 +2,11 @@ assets/
 nbproject/
 sqls/
 application/config/database.php
+application/config/database.php~
 application/config/config.php
-application/views/*
-application/uploads/*
-application/models/*
-application/controllers/*
+application/views/*.php
+application/uploads/*.php
+application/models/*.php
+application/controllers/*.php
+application/themes/*.php
 
