@@ -132,7 +132,7 @@ class Profiler
     
     public function compile_session()
     { 
-      $profiler = "\n\n";  
+      $profiler = "\n\n"; 
       $profiler .= '<fieldset style="border:1px solid brown; color:brown; background-color:#eee;padding:6px 10px 10px 10px;margin:20px 0 20px 0;"> <legend style="color: brown;">SESSION DATA</legend>';
       
       if(empty($_SESSION))
@@ -140,7 +140,7 @@ class Profiler
       else {
           $profiler .= '<table style=\'width:100%\'>';
             foreach($_SESSION as $k => $v)
-               $profiler .= '<tr><td style=\'width:50%;padding:5px;color:#000;background-color:#ddd;\'> $_SESSION[\''. $k.'\'] </td>
+               @$profiler .= '<tr><td style=\'width:50%;padding:5px;color:#000;background-color:#ddd;\'> $_SESSION[\''. $k .'\'] </td>
                              <td style=\'width:50%;padding:5px;color:brown;font-weight:normal;background-color:#ddd;\'>'. $v .'</td>
                              </tr>';
             
@@ -183,7 +183,7 @@ class Profiler
          $profiler .= '<table style=\'width:100%\'>';
          
              foreach($config as $item => $value)
-                  $profiler .= '<tr><td style=\'width:50%;padding:5px;color:#000;background-color:#ddd;\'> '. $item .' </td>
+                  @$profiler .= '<tr><td style=\'width:50%;padding:5px;color:#000;background-color:#ddd;\'> '. $item .' </td>
                                 <td style=\'width:50%;padding:5px;color:black;font-weight:normal;background-color:#ddd;\'>'. $value .'</td>
                                 </tr>';
              

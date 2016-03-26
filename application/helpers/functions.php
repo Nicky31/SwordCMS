@@ -29,3 +29,13 @@ $str = preg_replace('#\[color=(red|green|blue|yellow|purple|olive|black|white)\]
 
 return $str;
 }
+
+function getSwf($fileName)
+{
+    $script = '<object width="80px;" height="80px" type="application/x-shockwave-flash" data="'.img_url($fileName.'.swf') .'">
+                 <param name="movie"  value="'.img_url($fileName.'.swf') .'" />
+	  	 <param name="wmode" value="transparent" />
+               </object>';
+    
+    return $script;
+}

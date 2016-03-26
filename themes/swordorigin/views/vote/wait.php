@@ -1,0 +1,1 @@
+<center><div class="alert alert-danger">Vous avez déjà voté ces deux dernières heures ! <br /> Vous devez attendre <?php echo $wait; ?> !</div></center>

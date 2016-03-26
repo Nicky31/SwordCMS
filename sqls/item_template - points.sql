@@ -1,0 +1,1 @@
+ALTER TABLE `item_template` ADD `points` INT NOT NULL DEFAULT '0'

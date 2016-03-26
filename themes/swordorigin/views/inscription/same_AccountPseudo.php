@@ -1,0 +1,1 @@
+<center><div class="alert alert-danger">Le nom de compte & le pseudo doivent être différents !</div></center>

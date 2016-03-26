@@ -6,7 +6,7 @@
 
     function checkLogin($login)        // NDC: Entre 6 & 20 lettres et chiffres
     {
-	return preg_match('#^[a-zA-Z0-9]{6,20}$#',$login);
+	return preg_match('#^[a-zA-Z0-9-]{6,20}$#',$login);
     }
    
     function checkPseudo($pseudo)      // Pseudo: Entre 4 & 20 lettres & chiffres

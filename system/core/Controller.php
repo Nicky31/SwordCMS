@@ -12,6 +12,7 @@ abstract class Controller
     private static $instance;
     protected      $output;
     protected      $models     = array(); // Nom des models instanciés
+    protected      $runnable   = TRUE;
     
     // Getters
    public static function &get_instance()  { return self::$instance; }
@@ -31,13 +32,16 @@ abstract class Controller
           $this->output = new Output;
                 
           $this->model('IndexModel','indexManager');
-          $stats = $this->indexManager->initStats($this->output->config('serverHost'),$this->output->config('serverPort'));
+          $stats = $this->indexManager->initStats();
           $this -> output -> setArg('stats',$stats);
    }
         
    public function __destruct()
    {
-          if($this->output->profiler && sizeof($this->models) > 0) // Si profiler == 1 && modèles uses
+       if(!empty($_POST['ajax']) && $_POST['ajax'] == 1)
+           return;
+       
+          if($this->output->_profiler && sizeof($this->models) > 0) // Si profiler == 1 && modèles uses
               foreach($this->models as $model)
                   $this->$model->__destruct(); // Destruction des modèles pour récupérer la liste des requêtes 
             
@@ -46,7 +50,7 @@ abstract class Controller
 
    public function model($model,$name = NULL)
    {       
-          loadFile('models', $model);              // Include
+          loadFile('models', $model,ALL);          // Include
           $name = (empty($name)) ? $model : $name; // Nom de l'attribut
             
           if(empty($this->$name)) {
@@ -71,20 +75,23 @@ abstract class Controller
           loadFile('helpers', $helpers);
    }
         
-   public function library($libraries,$params)
+   public function library($libraries,$params = array(), $return = TRUE)
    {
           if(is_array($libraries))
           {
               foreach($libraries as $library)
               {
-                  $this->$library($library);
+                  $this->library($library);
               }
               
               return TRUE;
           }
           
           loadFile('libraries', $libraries);
-          $this->$libraries = new $libraries($params);
+          if(!$return)
+            $this->$libraries = new $libraries($params);
+          else
+            return new $libraries($params);
    }
         
    public function undefinedAction()
@@ -92,10 +99,4 @@ abstract class Controller
           $this->output->view('errors/action_notfound');
    }
 	
-   public function loadController($controller,$method,$args = array()) // Charge un second contrôleur
-   {
-	  require_once(APP_PATH.'controllers/'. $controller .'.php');
-	  $this->SecundController = new $controller;
-          call_user_func_array(array($this->SecundController,$method),array($args));
-    }
 }

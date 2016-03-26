@@ -16,5 +16,8 @@
  * situés dans APP_PATH/helpers OU SYS_PATH/helpers
  */
 
+$autoload = array();
 $autoload['helpers'] = array('assets','urlManager','functions');
+
+$autoload['libraries'] = array();
 

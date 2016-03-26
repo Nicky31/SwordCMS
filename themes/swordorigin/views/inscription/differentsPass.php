@@ -1,0 +1,1 @@
+<center><div class="alert alert-danger">Mots de passes différents.</div></center>

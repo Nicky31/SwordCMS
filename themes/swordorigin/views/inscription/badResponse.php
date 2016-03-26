@@ -1,0 +1,1 @@
+<center><div class="alert alert-danger">Réponse secrète invalide. Caractères autorisés: Lettres & chiffres,tirets,"é","è",5 à 48 caractères.</div></center>

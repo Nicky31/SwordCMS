@@ -2,17 +2,17 @@
 
 function site_url($uri = '')
 {		
-	if( ! is_array($uri))
-	{
-		$uri = func_get_args();
-	}
+    if( ! is_array($uri))
+    {
+        $uri = func_get_args();
+    }
 
-$stringUrl = BASE_PATH .'/index.php';	
+    $stringUrl = BASE_PATH .'/index.php';	
 
-	foreach($uri as $current)
-		$stringUrl .= '/'.$current;
+    foreach($uri as $current)
+        $stringUrl .= '/'.$current;
 		
-	return $stringUrl;
+    return $stringUrl;
 }
 
 function url($text, $uri = '')

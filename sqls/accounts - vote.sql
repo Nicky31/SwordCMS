@@ -1,0 +1,1 @@
+ALTER TABLE `accounts` ADD `vote` INT( 11 ) UNSIGNED NOT NULL DEFAULT '0' AFTER `Points` 

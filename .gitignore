@@ -1,12 +1,1 @@
-assets/
-nbproject/
-sqls/
-application/config/database.php
-application/config/database.php~
-application/config/config.php
-application/views/*.php
-application/uploads/*.php
-application/models/*.php
-application/controllers/*.php
-application/themes/*.php
-
+.idea
